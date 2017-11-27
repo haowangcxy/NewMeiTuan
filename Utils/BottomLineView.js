@@ -12,21 +12,13 @@ import {
     View,
     Alert
 } from 'react-native';
-import Swiper from './SwiperView';
-import Utils from '../../../Utils/Utils';
+import Utils from './Utils'
 
-export default class FlatList extends React.Component {
-
-    constructor(props) {
-        super(props);
-        this.state = {
-        };
-    }
+export default class BottomLineView extends React.Component {
 
     render() {
         return (
             <View style={styles.containerView}>
-                <Swiper/>
             </View>
         );
     }
@@ -34,9 +26,8 @@ export default class FlatList extends React.Component {
 
 const styles = StyleSheet.create({
     containerView : {
-        height : Utils.screenW / 3,
-        alignItems : "center",
-        justifyContent : "flex-start"
-    },
+        width: Utils.screenW - 30,
+        height: 0.5,
+        backgroundColor: Utils.colors.border
+    }
 });
-
