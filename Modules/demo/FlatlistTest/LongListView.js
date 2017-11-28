@@ -14,10 +14,6 @@ import {
     FlatList,
     TouchableOpacity
 } from 'react-native';
-import DatabaseTest from './DatabaseTest/DatabaseTest';
-import NetWorkTest from './NetWorkTest/NetWorkTest';
-import FlatlistTest from './FlatlistTest/FlatlistTest';
-import BottomLineV from '../../Utils/BottomLineView';
 
 export default class Demo extends React.Component {
 
@@ -26,12 +22,6 @@ export default class Demo extends React.Component {
         this.state = {
             data: [{'title': "FlatlistTest"}, {'title' : 'NetWorkTest'}, {'title' : 'DatabaseTest'}],
         }
-    }
-    componentWillMount() {
-        // alert('componentWillMount')
-    }
-
-    componentWillUnmount() {
     }
 
     render() {
@@ -51,8 +41,9 @@ export default class Demo extends React.Component {
     }
 
     renderItem = (item, index) => (
-        <TouchableOpacity onPress={
-            this.pushToDetailV.bind(this, item.item.title)
+        <TouchableOpacity onPress={() => {
+            alert(item.item.title);
+        }
         }
         >
             <View style={{height :50, justifyContent:'center', alignItems:'flex-start', backgroundColor:'white'}}>
@@ -67,16 +58,6 @@ export default class Demo extends React.Component {
         </TouchableOpacity>
 
     )
-
-    pushToDetailV = (title) => {
-        if (title === 'FlatlistTest') {
-            this.props.navigation.navigate('FlatlistTest');
-        } else if (title === 'NetWorkTest') {
-            this.props.navigation.navigate('NetWorkTest');
-        } else if (title === 'DatabaseTest') {
-            this.props.navigation.navigate('DatabaseTest')
-        }
-    }
 }
 
 const styles = StyleSheet.create({
@@ -90,5 +71,3 @@ const styles = StyleSheet.create({
         justifyContent : "center"
     }
 });
-
-// module.export = HomeView;

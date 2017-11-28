@@ -21,6 +21,9 @@ import AccountView from './Modules/Account/AccountView';
 import Demo from './Modules/demo/Demo';
 import Thrity from './Modules/thirty/Thirty';
 import AccountChildView from './Modules/Account/AccountChildView';
+import DatabaseTest from './Modules/demo/DatabaseTest/DatabaseTest';
+import NetWorkTest from './Modules/demo/NetWorkTest/NetWorkTest';
+import FlatlistTest from './Modules/demo/FlatlistTest/FlatlistTest';
 
 // var homeView = require("./Modules/Home/HomeView");
 // var accountView = require("./Modules/Account/AccountView");
@@ -113,7 +116,10 @@ const Navigator = StackNavigator({
         Account : {screen : AccountView},
         Demo : {screen : Demo},
         Thirty : {screen : Thrity},
-    AccountChildView: {screen : AccountChildView}
+    AccountChildView: {screen : AccountChildView},
+    FlatlistTest : {screen : FlatlistTest},
+    NetWorkTest : {screen : NetWorkTest},
+    DatabaseTest : {screen : DatabaseTest}
     },
     {
         navigationOptions: {

@@ -28,6 +28,7 @@ const styles = StyleSheet.create({
     containerView : {
         width: Utils.screenW - 30,
         height: 0.5,
-        backgroundColor: Utils.colors.border
+        backgroundColor: Utils.colors.border,
+        marginLeft : 15
     }
 });
