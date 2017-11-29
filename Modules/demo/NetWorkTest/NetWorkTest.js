@@ -50,7 +50,7 @@ export default class NetWorkTest extends React.Component {
 
     getNetworkData = () => {
         // alert('get');
-        fetch('http://192.168.1.103:3002/rnget?name=wanghao&height=1000', {
+        fetch('http://10.110.1.156:3002/rnget?name=wanghao&height=1000', {
             method: 'GET',
             mode: "cors",
             headers: {
@@ -66,12 +66,13 @@ export default class NetWorkTest extends React.Component {
             })
             .catch((error) => {
                 console.error(error);
+                alert('error:' + error);
             });
     }
 
     postNetworkData = () => {
         // alert('post');
-        fetch('http://192.168.1.103:3002/rnpost', {
+        fetch('http://10.110.1.156:3002/rnpost', {
             method: 'POST',
             mode: "cors",
             headers: {
@@ -87,9 +88,9 @@ export default class NetWorkTest extends React.Component {
             })
             .catch((error) => {
                 console.error(error);
+                alert('error:' + error);
             });
     }
-
 }
 
 const styles = StyleSheet.create({

@@ -24,6 +24,7 @@ import AccountChildView from './Modules/Account/AccountChildView';
 import DatabaseTest from './Modules/demo/DatabaseTest/DatabaseTest';
 import NetWorkTest from './Modules/demo/NetWorkTest/NetWorkTest';
 import FlatlistTest from './Modules/demo/FlatlistTest/FlatlistTest';
+import StorageUtils from './Utils/StorageUtils'
 
 // var homeView = require("./Modules/Home/HomeView");
 // var accountView = require("./Modules/Account/AccountView");
@@ -150,6 +151,12 @@ export default class App extends Component<{}> {
       };
     }
 
+    componentWillMount()
+    {
+        StorageUtils._getStorage();
+        global.storage = StorageUtils;
+        // storage._sava('34','43');
+    }
 
   render() {
     return (

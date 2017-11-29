@@ -9,7 +9,11 @@ import {
     Platform,
     StyleSheet,
     Text,
-    View
+    View,
+    ScrollView,
+    TextInput,
+    Alert,
+    Button
 } from 'react-native';
 
 export default class DatabaseTest extends React.Component {
@@ -21,16 +25,80 @@ export default class DatabaseTest extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            addKey : '',
+            addValue : '',
+            searchKey : '',
+            deleteKey : '',
         };
     }
 
     render() {
         return (
-            <View style={styles.containerView}>
+            <ScrollView style={styles.containerView}>
                 <Text style={styles.testStyle}>
-                    DatabaseTest
+                    react-native-storage
                 </Text>
-            </View>
+                <View>
+                    <View>
+                        <Text>
+                            增／改
+                        </Text>
+                        <TextInput placeholder={'key'} onChangeText={(text) => {
+                            this.setState({addKey:text})
+                        }}/>
+                        <TextInput placeholder={'value'} onChangeText={(text) => {
+                            this.setState({addValue : text});
+                        }}/>
+                        <Button title="提交" onPress={() => {
+                            let strValue = this.state.addValue;
+                            let strKey = this.state.addKey;
+                            if (strKey !== null && strKey.length > 0 && strValue !== null && strValue.length > 0) {
+                                storage._sava(strKey, strValue);
+                                alert('save success');
+                            } else {
+                                alert('key 或 value 不能为空');
+                            }
+                        }}/>
+                    </View>
+                    <View>
+                        <Text>
+                            查找
+                        </Text>
+                        <TextInput placeholder={'key'} onChangeText={(text)=>{
+                            this.setState({searchKey:text});
+                        }}/>
+                        <Button title="提交" onPress={() => {
+                            let keyInput = this.state.searchKey;
+                            if (keyInput !== null && keyInput.length > 0) {
+                                storage._load(keyInput, function (ret) {
+                                    alert(ret);
+                                })
+                            } else {
+                                alert('key 或 value 不能为空');
+                            }
+
+                        }}/>
+                    </View>
+                    <View>
+                        <Text>
+                            删除
+                        </Text>
+                        <TextInput placeholder={'key'} onChangeText={(text) => {
+                            this.setState({deleteKey:text});
+                        }}/>
+                        <Button title="提交" onPress={() => {
+                            let deleteInput = this.state.deleteKey;
+                            if (deleteInput !== null && deleteInput.length > 0) {
+                                storage._remove(deleteInput);
+                                alert('success delete');
+                            } else {
+                                alert('key 或 value 不能为空');
+                            }
+                        }}/>
+                    </View>
+                    <TextInput/>
+                </View>
+            </ScrollView>
         );
     }
 }
@@ -38,8 +106,6 @@ export default class DatabaseTest extends React.Component {
 const styles = StyleSheet.create({
     containerView : {
         flex:1,
-        alignItems : "center",
-        justifyContent : "center"
     },
     testStyle : {
         alignItems : "center",
