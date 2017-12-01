@@ -17,7 +17,9 @@ import {
 export default class NetWorkTest extends React.Component {
 
     static navigationOptions = {
-        title : 'NetWorkTest'
+        headerTitleStyle:{alignSelf : 'center'},
+        title : 'NetWorkTest',
+        headerRight:(<View/>)
     }
 
     constructor(props) {

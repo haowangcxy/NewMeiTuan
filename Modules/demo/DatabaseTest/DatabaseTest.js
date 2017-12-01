@@ -19,7 +19,9 @@ import {
 export default class DatabaseTest extends React.Component {
 
     static navigationOptions = {
-        title : 'DatabaseTest'
+        title : 'DatabaseTest',
+        headerTitleStyle:{alignSelf : 'center'},
+        headerRight:(<View/>)
     }
 
     constructor(props) {

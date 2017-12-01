@@ -65,7 +65,6 @@ export default class Demo extends React.Component {
                 <BottomLineV/>
             </View>
         </TouchableOpacity>
-
     )
 
     pushToDetailV = (title) => {

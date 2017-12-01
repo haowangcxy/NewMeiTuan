@@ -12,8 +12,9 @@ var storage;
 var defaultExpires = 1000*3600*24;
 var size = 1000;
 
-export default class MySorage extends Component{
+// 参考 http://blog.csdn.net/zach_zhou/article/details/72654690
 
+export default class MySorage extends Component{
 
     static _getStorage(){
 

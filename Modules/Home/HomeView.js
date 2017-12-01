@@ -18,6 +18,7 @@ import FlatListV from './FlatListV/FlatListView';
 
 export default class HomeView extends React.Component {
 
+
     constructor(props) {
         super(props);
         this.state = {

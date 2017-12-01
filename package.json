@@ -10,6 +10,8 @@
     "prop-types": "^15.6.0",
     "react": "16.0.0",
     "react-native": "0.50.3",
+    "react-native-refresh-list-view": "^1.0.5",
+    "react-native-refreshlist": "^1.0.3",
     "react-native-scrollable-tab-view": "^0.8.0",
     "react-native-snap-carousel": "^3.4.0",
     "react-native-storage": "^0.2.2",

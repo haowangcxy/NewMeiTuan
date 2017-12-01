@@ -18,6 +18,12 @@ import {
 
 export default class AccountChildView extends React.Component {
 
+    static navigationOptions = {
+        title : 'AccountChildView',
+        headerTitleStyle:{alignSelf : 'center'},
+        headerRight:(<View/>)
+    }
+
     componentWillMount() {
     }
 
@@ -38,13 +44,7 @@ export default class AccountChildView extends React.Component {
 
     componentDidMount() {
     }
-    
-    static navigationOptions = {
-        title:'childPage'
-    }
 }
-
-
 
 const styles = StyleSheet.create({
     containerView : {

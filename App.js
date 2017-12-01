@@ -11,7 +11,8 @@ import {
   Text,
   View,
     Image,
-    Alert
+    Alert,
+    Button
 } from 'react-native';
 // import TabNavigator from 'react-native-tab-navigator';
 import { TabNavigator, StackNavigator, TabBarBottom } from 'react-navigation';
@@ -41,11 +42,10 @@ const tab = TabNavigator({
             screen: HomeView,
             navigationOptions: ({navigation}) => ({
                 tabBarLabel: '首页',
-                title:'首页',
+                headerTitle:'首页',
+                headerTitleStyle : {alignSelf : 'center'},
                 tabBarIcon: ({ focused, tintColor }) => (
                     <Image source={{uri : "tabbar_home"}} style={[{tintColor: tintColor}, {width:25, height:25}]}/>
-//     <Icon name="tabbar_home" size={30} color={tintColor} />
-                //
                 ),
                 selectedIcon:({focused, tintColor }) => (
                     <Image source={{uri : "tabbar_home_highlighted"}} style={[{tintColor: tintColor}, {width:30, height:30}]}/>
@@ -55,10 +55,10 @@ const tab = TabNavigator({
         Demo: {
             screen: Demo,
             navigationOptions: {
+                headerTitleStyle:{alignSelf : 'center'},
                 tabBarLabel: 'Demo',
                 title:'demo',
                 tabBarIcon: ({ focused, tintColor }) => (
-                    //     <Icon name="tabbar_home" size={30} color={tintColor} />
                     <Image source={{uri : "tabbar_message_center"}} style={[{tintColor: tintColor},{width:25, height:25}]}/>
                 ),
                 selectedIcon:({focused, tintColor}) => (
@@ -69,11 +69,11 @@ const tab = TabNavigator({
         Thirty: {
             screen: Thrity,
             navigationOptions: {
+                headerTitleStyle : {alignSelf : 'center'},
                 tabBarLabel: 'Thrity',
                 title:'Thirty',
                 tabBarIcon: ({ focused, tintColor }) => (
-                    //     <Icon name="tabbar_home" size={30} color={tintColor} />
-                    <Image source={{uri : "tabbar_discover"}} style={[{tintColor: tintColor},{width:25, height:25}]}/>
+                    <Image source={{uri : "tabbar_discover"}} style={[{tintColor: tintColor},{width:30, height:30}]}/>
                 ),
                 selectedIcon:({focused, tintColor}) => (
                     <Image source={{uri : "tabbar_profile_highlighted"}} style={[{tintColor: tintColor},{width:30, height:30}]}/>
@@ -85,8 +85,8 @@ const tab = TabNavigator({
             navigationOptions: {
                 tabBarLabel: '我的',
                 header:null,
+                headerTitleStyle : {alignSelf : 'center'},
                 tabBarIcon: ({ focused, tintColor }) => (
-                //     <Icon name="tabbar_home" size={30} color={tintColor} />
                     <Image source={{uri : "tabbar_profile"}} style={[{tintColor: tintColor},{width:25, height:25}]}/>
                 ),
                 selectedIcon:({focused, tintColor}) => (
@@ -111,11 +111,43 @@ const tab = TabNavigator({
         }
     })
 
+// const StackOptions = ({navigation}) => {
+//     console.log(navigation);
+//     let {state,goBack} = navigation;
+//
+//     // 用来判断是否隐藏或显示header
+//     const visible= state.params.isVisible;
+//     let header;
+//     if (visible === true){
+//         header = null;
+//     }
+//     const headerStyle = {backgroundColor:'#4ECBFC', alignSelf:'center'};
+//     const headerTitle = state.params.title;
+//     const headerTitleStyle = {fontSize:20,color:'white',fontWeight:'500'}
+//     const headerBackTitle = false;
+//     // const headerLeft = (
+//         {/*<Button*/}
+//             {/*isCustom={true}*/}
+//             {/*customView={*/}
+//                 {/*<Icon*/}
+//                     {/*name='ios-arrow-back'*/}
+//                     {/*size={30}*/}
+//                     {/*color='white'*/}
+//                     {/*style={{marginLeft:13}}*/}
+//                 {/*/>*/}
+//             {/*}*/}
+//             {/*onPress={()=>{goBack()}}*/}
+//         {/*/>*/}
+//     {/*);*/}
+//     return {headerStyle,headerTitle,headerTitleStyle,headerBackTitle,header}
+// };
+
 const Navigator = StackNavigator({
         Tab : {screen : tab},
         Home : {screen : HomeView},
         Account : {screen : AccountView},
-        Demo : {screen : Demo},
+        Demo : {screen : Demo,
+        },
         Thirty : {screen : Thrity},
     AccountChildView: {screen : AccountChildView},
     FlatlistTest : {screen : FlatlistTest},

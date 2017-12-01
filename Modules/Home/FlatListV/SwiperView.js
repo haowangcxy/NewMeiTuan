@@ -21,48 +21,69 @@ export default class SwiperView extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            startswiper:false,
         };
     }
 
+    componentWillMount() {
+
+    }
+
     componentDidMount(){
+        setTimeout(() => {
+            this.setState({
+                startswiper : true
+            })
+        }, 500)
     }
 
     render() {
         return (
         <View style={styles.containerView}>
-            <Swiper style={styles.wrapper} height={Utils.screenW / 3}
-                    dot={<View style={{backgroundColor: '#ffffff', width: 5, height: 5, borderRadius: 4, marginLeft: 3, marginRight: 3, marginTop: 3, marginBottom: 3}} />}
-                    activeDot={<View style={{backgroundColor: '#D43C33', width: 8, height: 8, borderRadius: 4, marginLeft: 3, marginRight: 3, marginTop: 3, marginBottom: 3}} />}
-                    paginationStyle={{
-                        bottom: 0, left: null, right: 10
-                    }}
-                    loop
-                    autoplay
-                    removeClippedSubviews={false}
-            >
-                {/*{*/}
-                {/*banner.map((v, i) => (*/}
-                {/*<View style={styles.slide} key={i}>*/}
-                {/*<Image resizeMode='stretch' style={styles.image} source={{uri: v.pic + '?param=500y200'}} />*/}
-                {/*</View>*/}
-                {/*))*/}
-                {/*}*/}
-                <View style={styles.slide}>
-                    <Image resizeMode='stretch' style={styles.image} source={require('../../../imgs/Home/slider1.jpg')} />
-                </View>
-                <View style={styles.slide}>
-                    <Image resizeMode='stretch' style={styles.image} source={require('../../../imgs/Home/slider2.jpg')} />
-                </View>
-                <View style={styles.slide}>
-                    <Image resizeMode='stretch' style={styles.image} source={require('../../../imgs/Home/slider3.jpg')} />
-                </View>
-                <View style={styles.slide}>
-                    <Image resizeMode='stretch' style={styles.image} source={require('../../../imgs/Home/slider4.jpg')} />
-                </View>
-            </Swiper>
+            {
+                this.state.startswiper === true ?
+                this._renderSwiper()
+                : null}
+
         </View>
 
         );
+    }
+
+    _renderSwiper = () => {
+            return (
+                <Swiper style={styles.wrapper} height={Utils.screenW / 3}
+                        dot={<View style={{backgroundColor: '#ffffff', width: 5, height: 5, borderRadius: 4, marginLeft: 3, marginRight: 3, marginTop: 3, marginBottom: 3}} />}
+                        activeDot={<View style={{backgroundColor: '#D43C33', width: 8, height: 8, borderRadius: 4, marginLeft: 3, marginRight: 3, marginTop: 3, marginBottom: 3}} />}
+                        paginationStyle={{
+                            bottom: 0, left: null, right: 10
+                        }}
+                        loop
+                        autoplay
+                        removeClippedSubviews={false}
+                >
+                    {/*{alert(111111111111)};*/}
+                    {/*{*/}
+                    {/*banner.map((v, i) => (*/}
+                    {/*<View style={styles.slide} key={i}>*/}
+                    {/*<Image resizeMode='stretch' style={styles.image} source={{uri: v.pic + '?param=500y200'}} />*/}
+                    {/*</View>*/}
+                    {/*))*/}
+                    {/*}*/}
+                    <View style={styles.slide}>
+                        <Image resizeMode='stretch' style={styles.image} source={require('../../../imgs/Home/slider1.jpg')} />
+                    </View>
+                    <View style={styles.slide}>
+                        <Image resizeMode='stretch' style={styles.image} source={require('../../../imgs/Home/slider2.jpg')} />
+                    </View>
+                    <View style={styles.slide}>
+                        <Image resizeMode='stretch' style={styles.image} source={require('../../../imgs/Home/slider3.jpg')} />
+                    </View>
+                    <View style={styles.slide}>
+                        <Image resizeMode='stretch' style={styles.image} source={require('../../../imgs/Home/slider4.jpg')} />
+                    </View>
+                </Swiper>
+            );
     }
 }
 
@@ -73,6 +94,8 @@ const styles = StyleSheet.create({
         justifyContent : "flex-start"
     },
     wrapper: {
+        height : Utils.screenW / 3,
+        width : Utils.screenW
     },
     slide: {
         width: Utils.screenW,
